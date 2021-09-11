@@ -6,9 +6,6 @@ Create DB (Mysql)
 
 1.Recommend docker https://myapollo.com.tw/zh-tw/docker-mysql/
 ```
-$ docker run --name demo-mysql -e MYSQL_ROOT_PASSWORD=abc123 -d mysql:latest
-$ docker run --name demo-mysql -e MYSQL_ROOT_PASSWORD=abc123 -d mysql:5.7.35
-
 $ docker run --name=mysql8 -d -p 3306:3306 --env MYSQL_ROOT_PASSWORD=@1987sUPERmAN mysql/mysql-server:8.0
 ```
 2.Login and add setting for use tools
