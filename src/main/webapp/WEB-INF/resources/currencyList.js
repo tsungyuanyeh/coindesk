@@ -88,6 +88,11 @@ function fnCancel() {
 	$('form')[0].reset();
 }
 function formParam() {
+	var valid = $('form')[0].checkValidity();
+	console.log('html5 checkValidity:' + valid);
+	if (!valid)
+		return;
+
 	var param = {};
 	$('form input').each(
 		function(index) {
@@ -101,7 +106,7 @@ function formParam() {
 		}
 	);
 
-	var valid = /^(?:-?\d+|-?\d{1,3}(?:,\d{3})+)?(?:\.\d+)?$/.test(param.rate);
+	valid = /^(?:-?\d+|-?\d{1,3}(?:,\d{3})+)?(?:\.\d+)?$/.test(param.rate);
 	if (valid)
 		return param;
 	var erm = 'RATE please type float(#.##)';

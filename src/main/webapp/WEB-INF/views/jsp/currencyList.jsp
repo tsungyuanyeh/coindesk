@@ -32,7 +32,9 @@
 		</table>
 	</div>
 	<div id="dataForm" style="display: none;">
-		<form action="#">
+		<h1>Currency Form</h1>
+
+		<form>
 			<input type="hidden" id="f_id" />
 			<table>
 				<!-- <tr>
@@ -56,9 +58,9 @@
 					<td><input type="text" required="required" id="f_rate" /></td>
 				</tr>
 			</table>
-			<button id="btnAdd" style="display: none;">add data</button>
-			<button id="btnUpdate" style="display: none;">update data</button>
 		</form>
+		<button id="btnAdd" style="display: none;">add data</button>
+		<button id="btnUpdate" style="display: none;">update data</button>
 		<button id="btnCancel">cancel</button>
 	</div>
 </body>
