@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration>
+
+	<property name="logger.level" value="DEBUG" />
+	<property name="LOGGER_PATH" value="logs/chatweb/" />
+	<property name="FILE_NAME_PATTERN" value="%d{yyyy-MM-dd}.log" />
+	<property name="FILE_NAME_PATTERN_GZ" value="%d{yyyy-MM-dd}_%i.log.gz" />
+	<property name="LOG_PATTERN" value="%d{HH:mm:ss} %level %logger[%M:%L] - %msg%n" />
+	<property name="LOG_PATTERN_MAINTENANCE" value="%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] [%-5level] [%c #%M:%L] - %msg%n" />
+
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>${LOG_PATTERN_MAINTENANCE}</pattern>
+		</encoder>
+		<!--<filter class="ch.qos.logback.classic.filter.ThresholdFilter">-->
+		<!--<level>${logger.level}</level>-->
+		<!--</filter>-->
+	</appender>
+
+	<appender name="WEB_FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>${LOGGER_PATH}/weblog/web.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<fileNamePattern>${LOGGER_PATH}/weblog/web_${FILE_NAME_PATTERN}</fileNamePattern>
+			<!--<maxHistory>60</maxHistory>-->
+			<!--<timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">-->
+			<!--<maxFileSize>100MB</maxFileSize>-->
+			<!--</timeBasedFileNamingAndTriggeringPolicy>-->
+		</rollingPolicy>
+		<encoder>
+			<pattern>${LOG_PATTERN_MAINTENANCE}</pattern>
+		</encoder>
+	</appender>
+
+	<logger name="org.springframework" level="INFO"/>
+	<logger name="org.apache" level="INFO"></logger>
+	<logger name="org" level="INFO"></logger>
+	<logger name="com.tp.chatweb" level="${logger.level}"></logger>
+
+	<root level="@logger.level@">
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="WEB_FILE" />
+	</root>
+</configuration>
