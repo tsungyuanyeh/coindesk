@@ -100,92 +100,53 @@ function formParam() {
 			}
 		}
 	);
-	return param;
-}
-function validationNumber(e, num) {
-	var regu = /^[0-9] \.?[0-9]*$/;
-	if (e.value != "") {
-		if (!regu.test(e.value)) {
-			alert("請輸入正確的數字");
-			e.value = e.value.substring(0, e.value.length - 1);
-			e.focus();
-		} else {
-			if (num == 0) {
-				if (e.value.indexOf('.') > -1) {
-					e.value = e.value.substring(0, e.value.length - 1);
-					e.focus();
-				}
-			}
-			if (e.value.indexOf('.') > -1) {
-				if (e.value.split('.')[1].length > num) {
-					e.value = e.value.substring(0, e.value.length - 1);
-					e.focus();
-				}
-			}
-		}
-	}
+
+	var valid = /^(?:-?\d+|-?\d{1,3}(?:,\d{3})+)?(?:\.\d+)?$/.test(param.rate);
+	if (valid)
+		return param;
+	var erm = 'RATE please type float(#.##)';
+	alert(erm);
+	return;
 }
 function fnAdd() {
 	var param = formParam();
-
-	//	//非負浮點數(正浮點數 + 0)
-	//	
-	//	if (!r.test(param.rate)) {
-	//		erm = 'RATE please type float(#.##)';
-	//		alert(erm);
-	//		return;
-	//	}
-	//	if (/^\d{1,n}\.\d{1,n}$/.test(str) alert("只能輸入浮點型數據");
-
-	//var r=^\d+(\.\d+)?$/;
-
-	$.ajax({
-		url: "currency",
-		cache: false,
-		type: "POST",
-		data: param,
-		success: function(result, textStatus, request) {
-			if (result) {
-				findAll();
-				fnCancel();
-			} else {
-				alert('add failed!');
+	if (param)
+		$.ajax({
+			url: "currency",
+			cache: false,
+			type: "POST",
+			data: param,
+			success: function(result, textStatus, request) {
+				if (result) {
+					findAll();
+					fnCancel();
+				} else {
+					alert('add failed!');
+				}
+			},
+			error: function(xhr, ajaxOptions, thrownError) {
 			}
-		},
-		error: function(xhr, ajaxOptions, thrownError) {
-		}
-	});
+		});
 }
 function fnUpdate() {
 	var param = formParam();
-
-	//	//非負浮點數(正浮點數 + 0)
-	//	
-	//	if (!r.test(param.rate)) {
-	//		erm = 'RATE please type float(#.##)';
-	//		alert(erm);
-	//		return;
-	//	}
-	//	if (/^\d{1,n}\.\d{1,n}$/.test(str) alert("只能輸入浮點型數據");
-
-	//var r=^\d+(\.\d+)?$/;
-
-	$.ajax({
-		url: "currency/" + param.id,
-		cache: false,
-		type: "PUT",
-		data: param,
-		success: function(result, textStatus, request) {
-			if (result) {
-				findAll();
-				fnCancel();
-			} else {
-				alert('add failed!');
+	if (param)
+		$.ajax({
+			url: "currency/" + param.id,
+			cache: false,
+			type: "PUT",
+			data: param,
+			success: function(result, textStatus, request) {
+				if (result) {
+					findAll();
+					fnCancel();
+				} else {
+					alert('add failed!');
+				}
+			},
+			error: function(xhr, ajaxOptions, thrownError) {
 			}
-		},
-		error: function(xhr, ajaxOptions, thrownError) {
-		}
-	});
+		});
 }
 function fnCurrencyInit() {
 	$.ajax({
