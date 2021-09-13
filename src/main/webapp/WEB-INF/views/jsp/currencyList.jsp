@@ -42,19 +42,19 @@
 					<td><input type="text" id="f_id" readonly="readonly" /></td>
 				</tr> -->
 				<tr>
-					<td>CODE</td>
+					<td><label for="f_code">CODE</label></td>
 					<td><input type="text" required="required" id="f_code" /></td>
 				</tr>
 				<tr>
-					<td>DESCRIPTION</td>
+					<td><label for="f_description">DESCRIPTION</label></td>
 					<td><input type="text" required="required" id="f_description" /></td>
 				</tr>
 				<tr>
-					<td>SYMBOL</td>
+					<td><label for="f_symbol">SYMBOL</label></td>
 					<td><input type="text" required="required" id="f_symbol" /></td>
 				</tr>
 				<tr>
-					<td>RATE</td>
+					<td><label for="f_rate">RATE</label></td>
 					<td><input type="text" required="required" id="f_rate" /></td>
 				</tr>
 			</table>
