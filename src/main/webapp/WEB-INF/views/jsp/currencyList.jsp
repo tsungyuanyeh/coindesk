@@ -8,6 +8,7 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="resources/currencyList.js"></script>
+<link href="resources/currencyList.css" rel="stylesheet">
 </head>
 <body>
 	<h1>Currency List</h1>
@@ -42,19 +43,19 @@
 					<td><input type="text" id="f_id" readonly="readonly" /></td>
 				</tr> -->
 				<tr>
-					<td><label for="f_code">CODE</label></td>
+					<td class="fieldName"><label for="f_code">CODE</label></td>
 					<td><input type="text" required="required" id="f_code" /></td>
 				</tr>
 				<tr>
-					<td><label for="f_description">DESCRIPTION</label></td>
+					<td class="fieldName"><label for="f_description">DESCRIPTION</label></td>
 					<td><input type="text" required="required" id="f_description" /></td>
 				</tr>
 				<tr>
-					<td><label for="f_symbol">SYMBOL</label></td>
+					<td class="fieldName"><label for="f_symbol">SYMBOL</label></td>
 					<td><input type="text" required="required" id="f_symbol" /></td>
 				</tr>
 				<tr>
-					<td><label for="f_rate">RATE</label></td>
+					<td class="fieldName"><label for="f_rate">RATE</label></td>
 					<td><input type="text" required="required" id="f_rate" /></td>
 				</tr>
 			</table>
