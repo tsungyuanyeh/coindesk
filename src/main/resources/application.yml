@@ -9,7 +9,7 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/coin_demo?serverTimezone=UTC&useSSL=false
-    username: tom
-    password: tom@1987Tree
+    username: root
+    password: '@2021sUPERmAN'
 
 apiUrl: 'https://api.coindesk.com/v1/bpi/currentprice.json'

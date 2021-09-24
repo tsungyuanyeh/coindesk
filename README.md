@@ -13,13 +13,14 @@ $ docker run --name=mysql8 -d -p 3306:3306 --env MYSQL_ROOT_PASSWORD=@1987sUPERm
 docker exec -it mysql8 mysql -uroot -p
 ```
 ```
-mysql> CREATE USER 'tom'@'%' IDENTIFIED BY 'tom@1987Tree';
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY '@2021sUPERmAN';
+mysql> UPDATE mysql.user SET HOST='%' WHERE USER = 'root' LIMIT 1;
+mysql> FLUSH PRIVILEGES;
 ```
 then you can use tools app to view or change db
 3.Create database/table
 ```
 mysql> CREATE DATABASE coin_demo;
-mysql> GRANT ALL ON coin_demo.* TO 'tom'@'%';
 mysql> use coin_demo;
 mysql> create table coin_currency(
    id INT NOT NULL AUTO_INCREMENT,
